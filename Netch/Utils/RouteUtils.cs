@@ -28,9 +28,7 @@ public static class RouteUtils
     public static bool CreateRoute(NetRoute o)
     {
         var Result = RouteHelper.CreateRoute(AddressFamily.InterNetwork, o.Network, o.Cidr, o.Gateway, (ulong)o.InterfaceIndex, o.Metric);
-
-#if DEBUG_TUN
-        Log.Verbose("CreateRoute {InterNetwork} {Address} {Cidr} {Gateway} {Interface} {Metric} Result: {Result}",
+        Log.Information("CreateRoute {InterNetwork} {Address} {Cidr} {Gateway} {Interface} {Metric} Result: {Result}",
             AddressFamily.InterNetwork,
             o.Network,
             o.Cidr,
@@ -38,7 +36,6 @@ public static class RouteUtils
             (ulong)o.InterfaceIndex,
             o.Metric,
             Result);
-#endif
         return Result;
     }
 
@@ -62,9 +59,7 @@ public static class RouteUtils
     public static bool DeleteRoute(NetRoute o)
     {
         var Result = RouteHelper.DeleteRoute(AddressFamily.InterNetwork, o.Network, o.Cidr, o.Gateway, (ulong)o.InterfaceIndex, o.Metric);
-
-#if DEBUG_TUN
-        Log.Verbose("DeleteRoute {InterNetwork} {Address} {Cidr} {Gateway} {Interface} {Metric} Result: {}",
+        Log.Information("DeleteRoute {InterNetwork} {Address} {Cidr} {Gateway} {Interface} {Metric} Result: {}",
             AddressFamily.InterNetwork,
             o.Network,
             o.Cidr,
@@ -72,7 +67,6 @@ public static class RouteUtils
             (ulong)o.InterfaceIndex,
             o.Metric,
             Result);
-#endif
         return Result;
     }
 
